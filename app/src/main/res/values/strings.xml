@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">BudgetBuddy1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="overview">Overview</string>
+    <string name="transactions">Transactions</string>
+    <string name="budget">Budget</string>
+    <string name="title">Budget Buddy</string>
+    <string name="more">More</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <string name="settings">Settings</string>
+    <string name="about">About Us</string>
+    <string name="logout">Logout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settingsFragment">Settings Fragment</string>
+    <string name="AboutUsFragment">About Us Fragment</string>
+    <string name="ExpenseTitle">Expense Title</string>
+    <string name="amount">Amount</string>
+    <string name="date">Date</string>
+    <string name="addExpense">Add Expense</string>
+</resources>

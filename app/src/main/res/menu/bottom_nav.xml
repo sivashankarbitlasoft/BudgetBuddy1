@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Overview"
+        android:id="@+id/overviewFragment"
+        android:icon="@drawable/baseline_home_24"/>
+    <item android:title="Transactions"
+        android:id="@+id/transactionsFragment"
+        android:icon="@drawable/baseline_list_24"/>
+    <item android:title="Budget"
+        android:id="@+id/budgetFragment"
+        android:icon="@drawable/baseline_account_balance_wallet_24"/>
+</menu>

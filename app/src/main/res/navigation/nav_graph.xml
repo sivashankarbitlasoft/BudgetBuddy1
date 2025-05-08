@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/overviewFragment">
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.budgetbuddy1.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.budgetbuddy1.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us">
+        <action
+            android:id="@+id/action_aboutUsFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"/>
+        <action
+            android:id="@+id/action_aboutUsFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.example.budgetbuddy1.OverviewFragment"
+        android:label="fragment_overview"
+        tools:layout="@layout/fragment_overview" >
+        <action
+            android:id="@+id/action_overviewFragment_to_budgetFragment"
+            app:destination="@id/budgetFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_transactionsFragment"
+            app:destination="@id/transactionsFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionsFragment"
+        android:name="com.example.budgetbuddy1.TransactionsFragment"
+        android:label="fragment_transactions1"
+        tools:layout="@layout/fragment_transactions1" >
+        <action
+            android:id="@+id/action_transactionsFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+        <action
+            android:id="@+id/action_transactionsFragment_to_budgetFragment"
+            app:destination="@id/budgetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/budgetFragment"
+        android:name="com.example.budgetbuddy1.BudgetFragment"
+        android:label="fragment_budget"
+        tools:layout="@layout/fragment_budget" >
+        <action
+            android:id="@+id/action_budgetFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+        <action
+            android:id="@+id/action_budgetFragment_to_transactionsFragment"
+            app:destination="@id/transactionsFragment" />
+    </fragment>
+</navigation>
