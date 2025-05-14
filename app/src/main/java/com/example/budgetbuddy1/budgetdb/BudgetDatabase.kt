@@ -18,7 +18,7 @@ abstract class BudgetDatabase : RoomDatabase() {
                 Room.databaseBuilder(
                     context.applicationContext,
                     BudgetDatabase::class.java,
-                    "budget_db"
+                    "expense_database"
                 ).build().also {
                     INSTANCE = it
                 }

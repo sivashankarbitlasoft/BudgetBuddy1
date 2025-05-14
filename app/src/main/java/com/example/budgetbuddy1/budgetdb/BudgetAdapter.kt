@@ -4,24 +4,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.budgetbuddy1.databinding.ItemBudgetBinding
 import com.example.budgetbuddy1.db.Expense
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.toList
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 //class BudgetAdapter : ListAdapter<BudgetItemEntity, BudgetAdapter.BudgetViewHolder>(DiffCallback()) {
 class BudgetAdapter(
-    private var list: List<Expense> = emptyList()
+    private var list: List<Expense> = emptyList(),
+    private var totalBudget: Double = 0.0 //
 ) : RecyclerView.Adapter<BudgetAdapter.BudgetViewHolder>() {
 
-    fun updateList(newList: List<Expense>) {
+    fun updateList(newList: List<Expense>, budget: Double) {
         list = newList
+        totalBudget = budget
         notifyDataSetChanged()
     }
 
@@ -37,7 +35,7 @@ class BudgetAdapter(
     override fun getItemCount(): Int {
         return list.size
     }
-    fun convertMillisToDate(millis: Long): String {
+    private fun convertMillisToDate(millis: Long): String {
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         return sdf.format(Date(millis))
     }
@@ -51,9 +49,10 @@ class BudgetAdapter(
             val formatedDate = convertMillisToDate(time)
             dateTextView.text = formatedDate.trim()
             amountSpentTextView.text = "Spent: ${item.amount}"
-            totalBudgetTextView.text = "Budget: ${25000}"
+            val budget1 = totalBudget.toInt()
+            totalBudgetTextView.text = "Budget: ${budget1}"
 
-            progressBar.max = 25000
+            progressBar.max = budget1
             progressBar.progress = item.amount.toInt()
         }
     }

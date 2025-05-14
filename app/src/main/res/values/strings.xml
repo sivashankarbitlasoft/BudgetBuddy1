@@ -19,4 +19,8 @@
     <string name="amount">Amount</string>
     <string name="date">Date</string>
     <string name="addExpense">Add Expense</string>
+    <string name="addBudget">Add Budget</string>
+    <string name="remBalance">Remaining Balance</string>
+    <string name="spentOrBudget">Spent: ₹0 / Budget: ₹0</string>
+    <string name="update">Update</string>
 </resources>

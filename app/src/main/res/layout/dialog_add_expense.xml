@@ -30,12 +30,5 @@
         android:inputType="none"
         />
 
-    <Button
-        android:id="@+id/btn_add_expense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/addExpense"
-        android:layout_marginTop="16dp"
-        />
 
 </LinearLayout>

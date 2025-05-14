@@ -80,6 +80,7 @@ class OverviewFragment : Fragment() {
                 val expense = Expense(title = title, amount = amount, date = selectedDate)
                 viewLifecycleOwner.lifecycleScope.launch {
                     viewModel.insertExpense(expense)
+                    Toast.makeText(requireContext(),"Expense Added Successfully", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
             }

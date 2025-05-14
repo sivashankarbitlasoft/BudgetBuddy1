@@ -11,16 +11,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.budgetbuddy1.budgetdb.BudgetAdapter
 import com.example.budgetbuddy1.databinding.FragmentTransactions1Binding
-import com.example.budgetbuddy1.db.Expense
-import com.example.budgetbuddy1.db.ExpenseRepository
 import com.example.budgetbuddy1.db.ExpenseViewModel
 import com.example.budgetbuddy1.db.ExpenseViewModelFactory
+import com.example.budgetbuddy1.dbbudget.BudgetViewModel
+import com.example.budgetbuddy1.dbbudget.BudgetViewModelFactory
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.toCollection
-import kotlinx.coroutines.flow.toList
+
 import kotlinx.coroutines.launch
 
 class TransactionsFragment : Fragment() {
@@ -29,6 +25,7 @@ class TransactionsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel: ExpenseViewModel
+    private lateinit var budgetViewModel: BudgetViewModel
     private lateinit var adapter: BudgetAdapter
 
     override fun onCreateView(
@@ -40,26 +37,28 @@ class TransactionsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val repository = ExpenseRepository(requireContext())
-        val factory = ExpenseViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, factory)[ExpenseViewModel::class.java]
+        val app = requireActivity().application as BudgetBuddyApp
 
-        Log.d("checkIssue", "onviewcreated")
-//        var list = mutableListOf(
-//            Expense(1,"Petrol",200.00,21032025)
-//        )
-        //var list2 = viewModel.getAllExpenses
-//        adapter = BudgetAdapter(list)
+        val expenseFactory = ExpenseViewModelFactory(app.repository)
+        viewModel = ViewModelProvider(this, expenseFactory)[ExpenseViewModel::class.java]
+
+        val budgetFactory = BudgetViewModelFactory(app.repo2Budget)
+        budgetViewModel = ViewModelProvider(this, budgetFactory)[BudgetViewModel::class.java]
+
         adapter = BudgetAdapter()
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
-
         binding.progressBar.visibility = View.VISIBLE
 
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.getAllExpenses.collectLatest { items ->
-                adapter.updateList(items)
-                binding.progressBar.visibility = View.GONE
+            budgetViewModel.getBudget.collectLatest {
+                budgetList ->
+                val currentBudget = budgetList.firstOrNull()?.budget ?: 0.0
+                Log.d("TransactionsFragment", "Fetched budget: $currentBudget")
+                viewModel.getAllExpenses.collectLatest { expenses ->
+                    adapter.updateList(expenses, currentBudget)
+                    binding.progressBar.visibility = View.GONE
+                }
             }
         }
     }

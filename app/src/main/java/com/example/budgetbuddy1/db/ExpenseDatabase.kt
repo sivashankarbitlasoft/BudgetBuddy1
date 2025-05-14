@@ -25,7 +25,5 @@ abstract class ExpenseDatabase : RoomDatabase() {
 
             }
         }
-
     }
-
 }
