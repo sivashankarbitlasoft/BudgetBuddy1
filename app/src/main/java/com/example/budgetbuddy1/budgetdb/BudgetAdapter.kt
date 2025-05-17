@@ -6,20 +6,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.budgetbuddy1.databinding.ItemBudgetBinding
+import com.example.budgetbuddy1.db.BudgetRemaining
 import com.example.budgetbuddy1.db.Expense
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import kotlin.math.exp
 
 //class BudgetAdapter : ListAdapter<BudgetItemEntity, BudgetAdapter.BudgetViewHolder>(DiffCallback()) {
 class BudgetAdapter(
-    private var list: List<Expense> = emptyList(),
-    private var totalBudget: Double = 0.0 //
+    private var list: List<BudgetRemaining> = emptyList(),
 ) : RecyclerView.Adapter<BudgetAdapter.BudgetViewHolder>() {
 
-    fun updateList(newList: List<Expense>, budget: Double) {
+    fun updateList(newList: List<BudgetRemaining>) {
         list = newList
-        totalBudget = budget
         notifyDataSetChanged()
     }
 
@@ -42,18 +42,21 @@ class BudgetAdapter(
 
     override fun onBindViewHolder(holder: BudgetViewHolder, position: Int) {
         val item = list[position]
+        val expense: Expense = item.expense
+        val remaining = item.remBudget
         Log.d("checkIssue", item.toString())
         with(holder.binding) {
-            titleTextView.text = item.title
-            val time = item.date
+            titleTextView.text = expense.title
+            val time = expense.date
             val formatedDate = convertMillisToDate(time)
             dateTextView.text = formatedDate.trim()
-            amountSpentTextView.text = "Spent: ${item.amount}"
-            val budget1 = totalBudget.toInt()
-            totalBudgetTextView.text = "Budget: ${budget1}"
+            amountSpentTextView.text = "Spent: ₹${"%.2f".format(expense.amount)}"
+            totalBudgetTextView.text = "Remaining: ₹${"%.2f".format(remaining)}"
 
-            progressBar.max = budget1
-            progressBar.progress = item.amount.toInt()
+            val totalBeforeExpense = remaining + expense.amount
+            progressBar.max = totalBeforeExpense.toInt()
+            progressBar.progress = remaining.toInt()
+
         }
     }
 
@@ -69,3 +72,4 @@ class BudgetAdapter(
         }
     }
 }
+

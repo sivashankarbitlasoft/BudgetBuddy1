@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">BudgetBuddy1</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="overview">Overview</string>
-    <string name="transactions">Transactions</string>
-    <string name="budget">Budget</string>
+    <string name="overview">Expenses Overview</string>
+    <string name="transactions">List Expenses</string>
+    <string name="budget">Set-Up Budget</string>
     <string name="title">Budget Buddy</string>
     <string name="more">More</string>
     <string name="open_nav">Open Navigation Drawer</string>
@@ -23,4 +23,7 @@
     <string name="remBalance">Remaining Balance</string>
     <string name="spentOrBudget">Spent: ₹0 / Budget: ₹0</string>
     <string name="update">Update</string>
+    <string name="total_budget">Total Budget:</string>
+    <string name="Epensetype">Expense Type</string>
+    <string name="titlePiechart">Expense Pie Chart</string>
 </resources>

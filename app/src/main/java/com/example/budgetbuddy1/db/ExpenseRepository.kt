@@ -19,7 +19,7 @@ class ExpenseRepository(context: Context) {
         return dao.getAllExpenses().map {  entityList ->
             entityList.map {
                 entity ->
-                Expense(title = entity.title, amount = entity.amount, date = entity.date)
+                Expense(title = entity.title, amount = entity.amount, date = entity.date, type = entity.type)
             }
 
         }

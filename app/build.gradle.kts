@@ -54,6 +54,8 @@ dependencies {
 
     val nav_version = "2.8.9"
 
+    implementation("com.google.android.material:material:1.12.0")
+
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
@@ -76,5 +78,8 @@ dependencies {
     val coroutines_version="1.7.3"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version")
+
+//    Pi-Chart
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
 }

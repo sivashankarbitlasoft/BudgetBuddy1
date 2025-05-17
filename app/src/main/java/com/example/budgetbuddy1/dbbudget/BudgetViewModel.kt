@@ -14,5 +14,4 @@ class BudgetViewModel(
     suspend fun updateBudget(amount: Double) {
         repository.insertOrUpdateBudget(amount)
     }
-
 }

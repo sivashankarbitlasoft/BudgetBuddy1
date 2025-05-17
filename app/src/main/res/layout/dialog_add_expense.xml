@@ -30,5 +30,21 @@
         android:inputType="none"
         />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/et_add_expense_category"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="@string/Epensetype"
+            android:inputType="none"
+            android:focusable="true"
+            android:clickable="true"
+            android:layout_marginTop="12dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

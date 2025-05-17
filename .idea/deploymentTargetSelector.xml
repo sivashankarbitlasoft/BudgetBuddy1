@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-05-08T07:25:10.209033707Z">
+        <DropdownSelection timestamp="2025-05-15T05:10:08.385870910Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=/home/sivas/.android/avd/New_Emulater1.avd" />

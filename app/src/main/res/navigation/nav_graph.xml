@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/overviewFragment">
+    app:startDestination="@id/budgetFragment">
 
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.budgetbuddy1.SettingsFragment"
-        android:label="fragment_settings"
+        android:label="@string/settings"
         tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_settingsFragment_to_aboutUsFragment"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.example.budgetbuddy1.AboutUsFragment"
-        android:label="fragment_about_us"
+        android:label="@string/about"
         tools:layout="@layout/fragment_about_us">
         <action
             android:id="@+id/action_aboutUsFragment_to_settingsFragment"
@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/overviewFragment"
         android:name="com.example.budgetbuddy1.OverviewFragment"
-        android:label="fragment_overview"
+        android:label="@string/overview"
         tools:layout="@layout/fragment_overview" >
         <action
             android:id="@+id/action_overviewFragment_to_budgetFragment"
@@ -50,7 +50,7 @@
     <fragment
         android:id="@+id/transactionsFragment"
         android:name="com.example.budgetbuddy1.TransactionsFragment"
-        android:label="fragment_transactions1"
+        android:label="@string/transactions"
         tools:layout="@layout/fragment_transactions1" >
         <action
             android:id="@+id/action_transactionsFragment_to_overviewFragment"
@@ -62,7 +62,7 @@
     <fragment
         android:id="@+id/budgetFragment"
         android:name="com.example.budgetbuddy1.BudgetFragment"
-        android:label="fragment_budget"
+        android:label="@string/budget"
         tools:layout="@layout/fragment_budget" >
         <action
             android:id="@+id/action_budgetFragment_to_overviewFragment"
